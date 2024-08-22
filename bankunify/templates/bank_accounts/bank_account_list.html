@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Accounts</title>
+</head>
+<body>
+    <h2>Your Bank Accounts</h2>
+    <ul>
+    {% for account in object_list %}
+        <li>{{ account.bank_name }} - {{ account.bank_id }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

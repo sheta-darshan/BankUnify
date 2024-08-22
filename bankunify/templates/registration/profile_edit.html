@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+</head>
+<body>
+    <h2>Edit Profile</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div>
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+        </div>
+        
+        <div>
+            <label for="id_first_name">First Name:</label>
+            {{ form.first_name }}
+        </div>
+        
+        <div>
+            <label for="id_last_name">Last Name:</label>
+            {{ form.last_name }}
+        </div>
+        
+        <div>
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+        </div>
+
+        <div>
+            <label for="id_password1">New Password:</label>
+            {{ form.password1 }}
+        </div>
+        
+        <div>
+            <label for="id_password2">Confirm Password:</label>
+            {{ form.password2 }}
+        </div>
+
+        {% if form.errors %}
+            <div class="errors">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
