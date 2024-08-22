@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Bank Account</title>
+    <title>Add/Edit Bank Account</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Add Bank Account</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Save</button>
-        </form>
-        <div class="actions">
-            <a href="{% url 'home' %}">Home</a>
-        </div>
+    <h2>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Bank Account</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <div class="home-link">
+        <a href="{% url 'home' %}">Back to Home</a>
     </div>
 </body>
 </html>

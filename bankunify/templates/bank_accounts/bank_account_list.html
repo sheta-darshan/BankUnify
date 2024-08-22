@@ -9,7 +9,10 @@
         {% if object_list %}
             <ul>
                 {% for account in object_list %}
-                    <li>{{ account.bank_name }} - {{ account.bank_id }}</li>
+                    <li>
+                        {{ account.bank_name }} - {{ account.bank_id }}
+                        <a href="{% url 'bank-account-edit' account.pk %}">Edit</a>
+                    </li>
                 {% endfor %}
             </ul>
         {% else %}
@@ -18,7 +21,9 @@
     </div>
     <div class="actions">
         <a href="{% url 'bank-account-add' %}">Add a New Bank Account</a>
-        <a href="{% url 'home' %}">Home</a>
+    </div>
+    <div class="home-link">
+        <a href="{% url 'home' %}">Back to Home</a>
     </div>
 </body>
 </html>

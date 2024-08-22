@@ -24,9 +24,10 @@ class BankAccountListView(LoginRequiredMixin, ListView):
 class BankAccountUpdateView(UpdateView):
     model = BankAccount
     form_class = BankAccountForm
-    template_name = "bank_account_form.html"
+    template_name = "bank_accounts/bank_account_form.html"
     success_url = reverse_lazy('bank-account-list')
 
     def form_valid(self, form):
-        form.instance.set_password(form.cleaned_data['password'])
+        if form.cleaned_data['password']:
+            form.instance.set_password(form.cleaned_data['password'])
         return super().form_valid(form)

@@ -6,9 +6,16 @@
 <body>
     <h1>Welcome to BankUnify</h1>
     {% if user.is_authenticated %}
-        <p>Hello, {{ user.username }}! Go to your <a href="{% url 'profile' %}">profile</a>.</p>
+        <p>Hello, {{ user.username }}!</p>
+        <p><a href="{% url 'profile' %}">Go to your profile</a></p>
         <p><a href="{% url 'bank-account-add' %}">Add a new bank account</a></p>
         <p><a href="{% url 'bank-account-list' %}">View my bank accounts</a></p>
+        
+        <!-- Logout form -->
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
     {% else %}
         <p>You are not logged in. <a href="{% url 'login' %}">Login</a></p>
     {% endif %}
