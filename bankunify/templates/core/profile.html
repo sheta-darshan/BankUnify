@@ -4,18 +4,23 @@
     <title>Profile</title>
 </head>
 <body>
-    <h1>{{ user.username }}'s Profile</h1>
-    <p>Email: {{ user.email }}</p>
-    <p>First name: {{ user.first_name }}</p>
-    <p>Last name: {{ user.last_name }}</p>
+    <div class="container">
+        <h1>{{ user.username }}'s Profile</h1>
+        <p>Email: {{ user.email }}</p>
+        <p>First name: {{ user.first_name }}</p>
+        <p>Last name: {{ user.last_name }}</p>
 
-    <!-- Link to the edit profile page -->
-    <p><a href="{% url 'profile_edit' %}">Edit Profile</a></p>
+        <!-- Link to the home page -->
+        <div class="actions">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'profile_edit' %}">Edit Profile</a>
+        </div>
 
-    <!-- Logout form -->
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-    </form>
+        <!-- Logout form -->
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    </div>
 </body>
 </html>
